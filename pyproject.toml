@@ -33,6 +33,15 @@ dependencies = [
 homepage = "https://github.com/nichollsh/cm_feathers"
 issues = "https://github.com/nichollsh/cm_feathers/issues"
 
+[project.optional-dependencies]
+develop = [
+    "coverage[toml]",
+    "pip-tools",
+    "pytest >= 8.1",
+    "pre-commit",
+    "ruff",
+]
+
 [tool.setuptools]
 package-dir = {"feathers" = "src/feathers" }
 include-package-data = true
