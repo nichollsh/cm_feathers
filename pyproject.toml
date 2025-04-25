@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 # https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
 [project]
 name = "cm_feathers"
-version = "1.0.0"
+version = "1.0.2"
 description = "Matplotlib colormaps inspired by bird feathers"
 readme = "README.md"
 requires-python = ">=3.9"
