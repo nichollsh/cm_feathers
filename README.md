@@ -24,5 +24,5 @@ import feathers
 ```
 -----------------------------
 Available under the GNU General Public License v3.
-   
+
 Copyright (C) 2025 Harrison Nicholls
