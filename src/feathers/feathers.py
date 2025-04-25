@@ -1,5 +1,7 @@
-from matplotlib.colors import LinearSegmentedColormap
+from __future__ import annotations
+
 from matplotlib import colormaps
+from matplotlib.colors import LinearSegmentedColormap
 
 # Converted from https://github.com/shandiya/feathers/blob/main/R/feathers.R
 _palettes = {
