@@ -76,4 +76,3 @@ required-imports = ["from __future__ import annotations"]
 [tool.ruff.format]
 quote-style = "single"
 indent-style = "space"
-
