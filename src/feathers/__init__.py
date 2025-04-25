@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from .feathers import _register_all, get_cmap, list_cmaps
 
-__version__ = "25.04.30"
+__version__ = "1.0.0"
 
 __all__ = ["get_cmap", "list_cmaps"]
 
