@@ -1,4 +1,4 @@
-# Feather colour maps
+# Feathers
 
 A simple Python package providing colormaps inspired by the colours of bird feathers.
 Based on the [R package](https://github.com/shandiya/feathers).
