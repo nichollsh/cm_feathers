@@ -17,13 +17,7 @@ keywords = [
     "Color",
     "Plotting",
 ]
-license = {text = "Apache 2.0 License"}
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "License :: OSI Approved :: Apache Software License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-]
+license = "GPL-3.0-or-later"
 dependencies = [
     "matplotlib",
     "numpy",

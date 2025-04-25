@@ -23,6 +23,6 @@ Simply import the package to make the colormaps available for use with Matplotli
 import feathers
 ```
 -----------------------------
-Available under the Apache License      
+Available under the GNU General Public License v3.
    
 Copyright (C) 2025 Harrison Nicholls
