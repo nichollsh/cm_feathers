@@ -1,5 +1,7 @@
-from matplotlib.colors import LinearSegmentedColormap
+from __future__ import annotations
+
 from matplotlib import colormaps
+from matplotlib.colors import LinearSegmentedColormap
 
 # Converted from https://github.com/shandiya/feathers/blob/main/R/feathers.R
 _palettes = {
@@ -36,11 +38,11 @@ def get_cmap(name: str) -> LinearSegmentedColormap:
     if reverse:
         key = name[:-2]
     else:
-        key = name 
+        key = name
 
     if key not in _palettes:
         raise ValueError(f"Key {key} not found in feathers.")
-    
+
     colors = _palettes[key]
     if reverse:
         colors = colors[::-1]

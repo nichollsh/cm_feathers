@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-import feathers 
+
+import feathers
+
 
 def test_version():
-    assert feathers.__version__ 
+    assert feathers.__version__
 
 def test_list_cmaps():
     cmaps = feathers.list_cmaps()
@@ -20,7 +22,7 @@ def test_get_cmap():
     assert isinstance(cmap, LinearSegmentedColormap)
     assert cmap.name == "spotted_pardalote"
     assert cmap(0.0)
-    
+
     # Test reverse colormap
     cmap_r = feathers.get_cmap("spotted_pardalote_r")
     assert isinstance(cmap_r, LinearSegmentedColormap)
@@ -32,4 +34,3 @@ def test_registered_cmap():
     cmap = plt.get_cmap("spotted_pardalote")
     assert isinstance(cmap, LinearSegmentedColormap)
     assert cmap.name == "spotted_pardalote"
-    

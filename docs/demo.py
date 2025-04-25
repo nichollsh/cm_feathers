@@ -1,11 +1,14 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 
-# Based on the demo from: 
+# Based on the demo from:
 # https://matplotlib.org/stable/gallery/color/colormap_reference.html
+from __future__ import annotations
 
 import matplotlib.pyplot as plt
 import numpy as np
+
 import feathers  # import the package to register the colormaps
+
 
 def demo():
 
@@ -29,24 +32,24 @@ def demo():
                 transform=ax.transAxes)
 
 
-        # Plot colormap discretely 
+        # Plot colormap discretely
         gradient = np.linspace(0, 1, len(feathers.feathers._palettes[cmap_name]))
         gradient = np.vstack((gradient, gradient))
         ax.imshow(gradient, aspect='auto', cmap=cmap_name)
 
-        # Continuous 
+        # Continuous
         ax = axs[i,1]
         gradient = np.linspace(0, 1, 256)
         gradient = np.vstack((gradient, gradient))
         ax.imshow(gradient, aspect='auto', cmap=cmap_name)
-        
-        
+
+
     # Turn off *all* ticks & spines, not just the ones with colormaps.
     for ax in axs:
         ax[0].set_axis_off()
         ax[1].set_axis_off()
 
-    # Save figure 
+    # Save figure
     for ext in ["png", "pdf", "svg"]:
         fpath = f"feathers.{ext}"
         print(f"Saving figure to {fpath}")
