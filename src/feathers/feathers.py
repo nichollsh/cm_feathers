@@ -1,7 +1,5 @@
-from __future__ import annotations
-
-from matplotlib import colormaps
 from matplotlib.colors import LinearSegmentedColormap
+from matplotlib import colormaps
 
 # Converted from https://github.com/shandiya/feathers/blob/main/R/feathers.R
 _palettes = {
@@ -19,28 +17,7 @@ _palettes = {
     "blue_kookaburra"   : ("#b5effb", "#0b7595", "#02407c", "#06213a", "#c45829", "#9C4620", "#622C14", "#d4d8e3", "#b8bcd8", "#ad8d9f", "#725f77")
 }
 
-# Parse and register with matplotlib
-_cmaps = {}
-for name, colors in _palettes.items():
-    # create cmaps
-    forward = LinearSegmentedColormap.from_list(name, colors)
-    reverse = LinearSegmentedColormap.from_list(name + "_r", colors[::-1])
-    # register with matplotlib
-    colormaps.register(forward)
-    colormaps.register(reverse)
-
-def list_cmaps():
-    """
-    List all available colormaps.
-
-    Returns
-    -------
-    list
-        A list of colormap names.
-    """
-    return list(_palettes.keys())
-
-def get_cmap(name):
+def get_cmap(name: str) -> LinearSegmentedColormap:
     """
     Get a colormap by name.
 
@@ -54,6 +31,38 @@ def get_cmap(name):
     matplotlib.colors.LinearSegmentedColormap
         The colormap.
     """
-    if name not in _cmaps:
-        raise ValueError(f"Key {name} not found in feathers.")
-    return _cmaps[name]
+
+    reverse = name.endswith("_r")
+    if reverse:
+        key = name[:-2]
+    else:
+        key = name 
+
+    if key not in _palettes:
+        raise ValueError(f"Key {key} not found in feathers.")
+    
+    colors = _palettes[key]
+    if reverse:
+        colors = colors[::-1]
+
+    return LinearSegmentedColormap.from_list(name, colors)
+
+def _register_all():
+    """
+    Register all colormaps with matplotlib.
+    """
+    for name, colors in _palettes.items():
+        for suffix in ("", "_r"):
+            colormaps.register(get_cmap(name+suffix))
+
+def list_cmaps():
+    """
+    List all available colormaps.
+
+    Returns
+    -------
+    list
+        A list of colormap names.
+    """
+    return list(_palettes.keys())
+
